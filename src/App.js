@@ -46,13 +46,12 @@ function App() {
   const [colaboradores, setColaboradores] = useState([])
   const aoNovoColaboradorAdicionado = (colaborador) => {
       setColaboradores([...colaboradores, colaborador]) // cria um novo array e coloca todos os colaboradores anteriores e adiciona o novo no final
-      console.log(colaboradores)
   }
   return (
     <div className="App">
       <Banner />
       <Formulario aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
-      {times.map(time => <Time nome={time.nome}/>)}
+      {times.map(time => <Time key={time.nome} nome={time.nome} background={time.corSecundaria} corCard={time.corPrimaria}/>)}
     </div>
   );
 }
