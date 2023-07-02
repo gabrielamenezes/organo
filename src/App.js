@@ -50,7 +50,8 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <Formulario aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
+      {/* transforma o array de objetos time, em um array de strings para passar para o formulário através das props*/}
+      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
       {times.map(time => <Time key={time.nome} nome={time.nome} background={time.corSecundaria} corCard={time.corPrimaria}/>)}
     </div>
   );
