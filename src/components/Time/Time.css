@@ -7,3 +7,9 @@
     display: inline-block;
     padding-bottom: 8px;
 }
+.time .colaboradores {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
