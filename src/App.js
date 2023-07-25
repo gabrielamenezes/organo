@@ -48,18 +48,25 @@ function App() {
   const aoNovoColaboradorAdicionado = (colaborador) => {
       setColaboradores([...colaboradores, colaborador]) // cria um novo array e coloca todos os colaboradores anteriores e adiciona o novo no final
   }
+
+  function deletarColaborador() {
+    console.log('colaborador deletado')
+  }
   return (
     <div className="App">
       <Banner />
       {/* transforma o array de objetos time, em um array de strings para passar para o formulário através das props*/}
       <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
-      {times.map(time => <Time 
-        key={time.nome} 
-        nome={time.nome} 
-        background={time.corSecundaria} 
-        corCard={time.corPrimaria}
-        colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)} 
-        />)}
+      {times.map(time => 
+        <Time 
+          key={time.nome} 
+          nome={time.nome} 
+          background={time.corSecundaria} 
+          corCard={time.corPrimaria}
+          aoDeletar={deletarColaborador}
+          colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)} 
+        />
+      )}
       <Rodape/>
     </div>
   );

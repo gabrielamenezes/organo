@@ -8,7 +8,9 @@ const Time = (props) => {
         <section className='time' style={{backgroundColor: props.background}}>
             <h3 style={{borderBottom: '4px solid' + props.corCard}}>{props.nome}</h3>
             <div className='colaboradores'>
-                {props.colaboradores.map(colaborador => <Colaborador key={colaborador.nome} nome={colaborador.nome} cargo={colaborador.cargo} imgUrl={colaborador.imagem} time={colaborador.time} cor={props.corCard}/>)}
+                {props.colaboradores.map(colaborador => {
+                    return <Colaborador key={colaborador.nome} nome={colaborador.nome} cargo={colaborador.cargo} imgUrl={colaborador.imagem} time={colaborador.time} cor={props.corCard} aoDeletar={props.aoDeletar}/>
+                })}
             </div>
         </section>
     )
