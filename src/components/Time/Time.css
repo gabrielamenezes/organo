@@ -2,6 +2,7 @@
     text-align: center;
     padding: 32px;
     background-image: url('/public/imagens/fundo.png');
+    position: relative;
 }
 .time h3 {
     font-size: 32px;
@@ -14,4 +15,10 @@
     gap: 30px;
     margin-top: 32px;
     flex-wrap: wrap;
+}
+
+.time .input-cor {
+    position: absolute;
+    top: 20px;
+    right: 50px;
 }
