@@ -24,6 +24,7 @@ const Formulario = (props) => {
         setTime('')
     }
 
+    // A responsabilidade do formulário é de conter os campos do formulário
     return (
         <section className='formulario'>
             {/*ouvir o clique do botao não tem validação do form html, por isso ouvir o submit */}

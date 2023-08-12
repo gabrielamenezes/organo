@@ -1,7 +1,7 @@
 import './CampoTexto.css'
 const CampoTexto = (props) => {
     const aoDigitado = (evento) => {
-        props.aoAlterado(evento.target.value);
+        props.aoAlterado(evento.target.value);  //recebe o set do campo
     }
     return (
         <div className="campo-texto">
