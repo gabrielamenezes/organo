@@ -2,7 +2,7 @@ import './Time.css'
 import Colaborador from '../Colaborador/'
 import hexToRgba from 'hex-to-rgba';
 // não tem nenhum comportamento, só recebe props e exibe na tela - DUMB COMPONENT (componente visual)
-const Time = ({cor, nome, colaboradores, mudarCor,aoDeletar, id}) => {
+const Time = ({cor, nome, colaboradores, mudarCor,aoDeletar, id, aoFavoritar}) => {
     const handleDelete = (colaboradorId, indice) => {
         aoDeletar(colaboradorId, indice);
     };
@@ -21,6 +21,7 @@ const Time = ({cor, nome, colaboradores, mudarCor,aoDeletar, id}) => {
                         colaborador={colaborador}
                         cor={cor} 
                         aoDeletar={() => handleDelete(colaborador.id, indice)}
+                        aoFavoritar={aoFavoritar}
                         />
                         )
                 })}

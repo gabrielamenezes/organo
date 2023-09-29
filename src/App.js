@@ -59,7 +59,6 @@ function App() {
   }
 
   function deletarColaborador(id) {
-      console.log(colaboradores)
       setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id))
       
   }
@@ -76,6 +75,14 @@ function App() {
   function cadastrarTime(novoTime) {
     setTimes([...times, {...novoTime, id: uuidv4()}] )
   }
+
+  function resolverFavorito(id) {
+    setColaboradores(colaboradores.map(colaborador => {
+      if(colaborador.id === id) colaborador.favorito = !colaborador.favorito;//se clica uma vez favorita, se clica outra vez, desfavorita
+      return colaborador 
+    })
+    )
+  }
   return (
     <div className="App">
       <Banner />
@@ -85,6 +92,7 @@ function App() {
       times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
       {times.map(time => 
         <Time
+          aoFavoritar={resolverFavorito}
           id = {time.id}
           key={time.id} 
           nome={time.nome} 

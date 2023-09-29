@@ -8,6 +8,7 @@ const Formulario = (props) => {
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
+    const [favorito, setFavorito] = useState('')
     const [nomeTime, setNomeTime] = useState('')
     const [corTime, setCorTime] = useState('')
 
@@ -17,7 +18,8 @@ const Formulario = (props) => {
         props.aoColaboradorCadastrado({
             nome, 
             cargo, 
-            imagem, 
+            imagem,
+            favorito, 
             time
         })
         setNome('')
