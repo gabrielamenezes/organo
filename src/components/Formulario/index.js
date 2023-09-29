@@ -1,5 +1,5 @@
 import './Formulario.css'
-import CampoTexto from '../CampoTexto';
+import Campo from '../Campo';
 import ListaSuspensa from '../ListaSuspensa';
 import Botao from '../Botao'
 import { useState } from 'react';
@@ -32,21 +32,21 @@ const Formulario = (props) => {
             {/*ouvir o clique do botao não tem validação do form html, por isso ouvir o submit */}
             <form onSubmit={aoSalvar}>
                 <h2>Preencha os dados para criar o card do colaborador.</h2>
-                <CampoTexto  
+                <Campo  
                     labelNome="Nome" 
                     obrigatorio={true} 
                     placeHolder="Digite seu nome" 
                     valor={nome}
                     aoAlterado={valor => setNome(valor)}
                 />
-                <CampoTexto 
+                <Campo 
                     obrigatorio={true} 
                     labelNome="Cargo"
                     placeHolder="Digite seu cargo"
                     valor={cargo}
                     aoAlterado={valor => setCargo(valor)} //faz o set da imagem com o valor que a gente recebeu no evento
                 />
-                <CampoTexto 
+                <Campo 
                     labelNome="Imagem" 
                     placeHolder="Informe o endereço da imagem"
                     valor={imagem}
@@ -63,17 +63,20 @@ const Formulario = (props) => {
             <form onSubmit={(evento) => {
                 evento.preventDefault();
                 props.cadastrarTime({nome: nomeTime, cor: corTime})
+                setNomeTime('')
+                setCorTime('')
                 }}>
                 <h2>Preencha os dados para criar um novo time.</h2>
-                <CampoTexto  
+                <Campo  
                     labelNome="Nome" 
                     obrigatorio 
                     placeHolder="Digite o nome do time" 
                     valor={nomeTime}
                     aoAlterado={valor => setNomeTime(valor)}
                 />
-                <CampoTexto 
-                    obrigatorio 
+                <Campo 
+                    obrigatorio
+                    type='color'
                     labelNome="Cor"
                     placeHolder="Digite a cor do time"
                     valor={corTime}
