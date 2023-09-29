@@ -3,6 +3,9 @@ import Colaborador from '../Colaborador/'
 import hexToRgba from 'hex-to-rgba';
 // não tem nenhum comportamento, só recebe props e exibe na tela - DUMB COMPONENT (componente visual)
 const Time = ({cor, nome, colaboradores, mudarCor,aoDeletar, id}) => {
+    const handleDelete = (colaboradorId, indice) => {
+        aoDeletar(colaboradorId, indice);
+    };
     return (
         //renderização condicional
         colaboradores.length > 0 &&
@@ -17,7 +20,7 @@ const Time = ({cor, nome, colaboradores, mudarCor,aoDeletar, id}) => {
                         key={indice} 
                         colaborador={colaborador}
                         cor={cor} 
-                        aoDeletar={aoDeletar}
+                        aoDeletar={() => handleDelete(colaborador.id, indice)}
                         />
                         )
                 })}
